@@ -14,6 +14,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+// Person class hosil qildik name and age filt bilan
 var Person = /** @class */ (function () {
     function Person(name, age) {
         this._name = "";
@@ -21,12 +22,20 @@ var Person = /** @class */ (function () {
         this._name = name;
         this._age = age;
     }
+    Person.prototype.seyHello = function () {
+        return "Assalom aleykum mening ismim ".concat(this._name);
+    };
     return Person;
 }());
+// Yana bitta class hosil qildik
+// bunga name and age filt kerak bo'lyabdi
+// Person classsdan extends qilib vorisiylik oldik
 var Student = /** @class */ (function (_super) {
     __extends(Student, _super);
     function Student(name, age, group, course) {
-        var _this = _super.call(this, name, age) || this;
+        var _this = 
+        // superga Person constructorida mavjud bo'lgan filtlarni olish mumkun 
+        _super.call(this, name, age) || this;
         _this._group = "";
         _this._course = 0;
         _this._group = group;
@@ -35,7 +44,30 @@ var Student = /** @class */ (function (_super) {
     }
     return Student;
 }(Person));
+var Teacher = /** @class */ (function (_super) {
+    __extends(Teacher, _super);
+    function Teacher(name, age, disciplines) {
+        var _this = _super.call(this, name, age) || this;
+        _this.disciplines = [];
+        _this.disciplines = disciplines;
+        return _this;
+    }
+    return Teacher;
+}(Person));
+// Person classdan odiiygina object hosil qildik
 var javlon = new Person('Javlon', 23);
 console.log(javlon);
+console.log(javlon.seyHello());
 var Sardor = new Student("Sardor", 24, "210-guruh", 4);
 console.log(Sardor);
+console.log(Sardor.seyHello());
+// Sardor.
+// let a: unknown = 1;
+// let b: number = <number>a
+var newSardor = Sardor;
+// newSardor.
+console.log(newSardor);
+console.log(newSardor.seyHello());
+var Abror = new Teacher("Abror", 34, ["React", "JS"]);
+console.log(Abror);
+console.log(Abror.seyHello());

@@ -9,6 +9,10 @@ class Person {
         this._name = name;
         this._age = age;
     }
+
+    seyHello(): string {
+        return `Assalom aleykum mening ismim ${this._name}`
+    }
 }
 
 // Yana bitta class hosil qildik
@@ -28,10 +32,37 @@ class Student extends Person {
     }
 }
 
+class Teacher extends Person {
+    disciplines: string[] = [];
+
+    constructor (name: string, age: number, disciplines: string[]){
+        super(name,age);
+        this.disciplines = disciplines;
+    }
+}
+
 // Person classdan odiiygina object hosil qildik
 const javlon: Person = new Person('Javlon', 23);
 
 console.log(javlon);
+console.log(javlon.seyHello());
 
 const Sardor: Student = new Student("Sardor", 24, "210-guruh", 4)
 console.log(Sardor);
+console.log(Sardor.seyHello());
+
+// Sardor.
+
+// let a: unknown = 1;
+// let b: number = <number>a
+
+
+const newSardor: Person = <Person>Sardor
+// newSardor.
+console.log(newSardor)
+console.log(newSardor.seyHello());
+
+const Abror: Teacher = new Teacher("Abror", 34, ["React", "JS"])
+
+console.log(Abror);
+console.log(Abror.seyHello());
